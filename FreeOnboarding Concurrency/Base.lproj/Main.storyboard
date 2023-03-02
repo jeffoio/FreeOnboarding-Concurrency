@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FreeOnboarding_Concurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vSk-2w-Mow">
+                                <rect key="frame" x="0.0" y="59" width="393" height="649"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Neg-VA-oGg">
+                                    <size key="itemSize" width="393" height="110"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="lso-bZ-pb2" customClass="PhotoCell" customModule="FreeOnboarding_Concurrency" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yV8-LR-eo0">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NKo-Tv-UEL">
+                                                    <rect key="frame" x="16" y="17.666666666666664" width="104" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="NKo-Tv-UEL" secondAttribute="height" multiplier="4:3" id="DpS-k1-7xb"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9qS-I0-6G3">
+                                                    <rect key="frame" x="128" y="53" width="171.33333333333337" height="4"/>
+                                                </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dt8-yt-5mS">
+                                                    <rect key="frame" x="315.33333333333331" y="37.666666666666664" width="61.666666666666686" height="34.999999999999993"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Load"/>
+                                                    <connections>
+                                                        <action selector="loadButtonTouchUpInside:" destination="lso-bZ-pb2" eventType="touchUpInside" id="30c-Af-j4R"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9qS-I0-6G3" firstAttribute="leading" secondItem="NKo-Tv-UEL" secondAttribute="trailing" constant="8" symbolic="YES" id="0C0-hQ-t4i"/>
+                                                <constraint firstAttribute="bottom" secondItem="NKo-Tv-UEL" secondAttribute="bottom" constant="16" id="E0S-Rb-YA9"/>
+                                                <constraint firstItem="NKo-Tv-UEL" firstAttribute="top" secondItem="yV8-LR-eo0" secondAttribute="top" constant="16" id="HRt-M9-guD"/>
+                                                <constraint firstItem="NKo-Tv-UEL" firstAttribute="leading" secondItem="yV8-LR-eo0" secondAttribute="leading" constant="16" id="JaA-fi-bN3"/>
+                                                <constraint firstAttribute="trailing" secondItem="dt8-yt-5mS" secondAttribute="trailing" constant="16" id="KBt-C8-CCW"/>
+                                                <constraint firstItem="dt8-yt-5mS" firstAttribute="centerY" secondItem="yV8-LR-eo0" secondAttribute="centerY" id="Q2J-Ns-A5y"/>
+                                                <constraint firstItem="9qS-I0-6G3" firstAttribute="centerY" secondItem="yV8-LR-eo0" secondAttribute="centerY" id="tsF-yz-Dgu"/>
+                                                <constraint firstItem="dt8-yt-5mS" firstAttribute="leading" secondItem="9qS-I0-6G3" secondAttribute="trailing" constant="16" id="xL8-Bw-hM1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="110"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="NKo-Tv-UEL" id="zaI-Y1-MLc"/>
+                                            <outlet property="loadButton" destination="dt8-yt-5mS" id="98z-XT-A9M"/>
+                                            <outlet property="progress" destination="9qS-I0-6G3" id="pEh-Df-u3e"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9wM-Mr-tdr"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vHn-wd-OSE"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Li-DF-I6y">
+                                <rect key="frame" x="16" y="758" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Load All Images"/>
+                                <connections>
+                                    <action selector="loadAllImagesButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mvu-Nb-Q0d"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Li-DF-I6y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BuM-M5-tJe"/>
+                            <constraint firstItem="vSk-2w-Mow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EXY-mE-kJd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vSk-2w-Mow" secondAttribute="trailing" id="RM3-1s-CGL"/>
+                            <constraint firstItem="vSk-2w-Mow" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UU0-DN-ODN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Li-DF-I6y" secondAttribute="bottom" constant="25" id="iBm-WQ-cHB"/>
+                            <constraint firstItem="7Li-DF-I6y" firstAttribute="top" secondItem="vSk-2w-Mow" secondAttribute="bottom" constant="50" id="jbh-Vq-jjO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Li-DF-I6y" secondAttribute="trailing" constant="16" id="mGv-dH-fgU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="vSk-2w-Mow" id="MX9-IH-nh0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="281.67938931297709" y="-1.4084507042253522"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
